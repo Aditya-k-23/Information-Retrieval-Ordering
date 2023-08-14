@@ -25,12 +25,12 @@ with open("./Queries/Oxford.txt", "r") as file:
             # Neural results 2
             resultIdx += 1
             # Initialize 10 empty strings for each response
-            for i in range (0, 50):
-              document[queryIdx][resultIdx].append("")
+            for i in range(0, 50):
+                document[queryIdx][resultIdx].append("")
             responseIdx = 0
 
         # End of result
-        elif line.startswith("-"*80):
+        elif line.startswith("-" * 80):
             responseIdx += 1
 
         else:
@@ -39,10 +39,7 @@ with open("./Queries/Oxford.txt", "r") as file:
             document[queryIdx][resultIdx][responseIdx] += line
 
 
-for i in range (1,4):
-  for j in range (1,3):
-    for k in range (0,50):
-      print(document[i][j][k]+ "\n")
-
-
-
+for i in range(1, 4):
+    for j in range(1, 3):
+        for k in range(0, 50):
+            print(document[i][j][k] + "\n")
