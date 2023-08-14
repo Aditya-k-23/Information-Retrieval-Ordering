@@ -8,11 +8,10 @@ neural search ordering.
 
 ## Installation
 
-Install python3.8 and pip3.8 and then run the following commands:
+Install python3.8 and pip3.8 and then run the following command:
 
 ```bash
-pip install python-dotenv
-pip install openai
+pip install -r requirements.txt
 ```
 
 ## Usage
