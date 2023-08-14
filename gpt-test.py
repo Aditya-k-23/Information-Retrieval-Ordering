@@ -1,6 +1,9 @@
 import os
 import openai
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 """
 Take in a file name and parse the file into a dictionary of queries and
@@ -62,8 +65,7 @@ Send a query to the GPT-3 API and return the response.
 
 
 def query_gpt(file_name):
-    openai.api_key = "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"
-
+    openai.api_key = os.getenv("OPENAI_API_KEY")
     context = "You are a helpful assistant."
     prompt = "Given a JSON file that contains an instruction and fifty potential responses, please rank the quality of these responses, and return the index of the top 10 ranked responses, no additional explanation is needed."
 
@@ -76,8 +78,7 @@ def query_gpt(file_name):
             {"role": "system", "content": context},
             {
                 "role": "user",
-                "content": prompt
-                + jsonDocument,
+                "content": prompt + jsonDocument,
             },
         ],
     )
@@ -85,4 +86,5 @@ def query_gpt(file_name):
 
 
 ########### TESTS ###########
-document = parse_file("./Queries/Emaar.txt")
+# document = parse_file("./Queries/Emaar.txt")
+query_gpt("./Queries/Emaar.txt")
